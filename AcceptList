@@ -1,4 +1,4 @@
-address=/cdn.jsdelivr.net/
-address=/modss.tv/
-address=/cub.red/
-address=/lampa.stream/
+server=/cdn.jsdelivr.net/
+server=/modss.tv/
+server=/cub.red/
+server=/lampa.stream/
