@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 set -e
-
-if command -v ufw > /dev/null; then
-    sudo ufw disable
-else
-    echo "UFW not installed, skipping firewall disable."
-fi
 APP_NAME="marzban"
 INSTALL_DIR="/opt"
 APP_DIR="$INSTALL_DIR/$APP_NAME"
