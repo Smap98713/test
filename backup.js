@@ -130,7 +130,7 @@ function goImport() {
   var accountEmail = (Lampa.Storage.get('account_email') || '').toLowerCase(); // Приводим к нижнему регистру
   var lampacUnicId = (Lampa.Storage.get('lampac_unic_id', '') || '').toLowerCase(); // Приводим к нижнему регистру
 
-  if (accountEmail === 'govnotoken1' || accountEmail === 'mamkin.haker@gmail.com' || lampacUnicId === 'govnotoken1' || lampacUnicId === 'mamkin.haker@gmail.com') {
+  if (accountEmail === 'govnotoken1' || accountEmail === 'aust21@yandex.ru' || lampacUnicId === 'govnotoken1' || lampacUnicId === 'mamkin.haker@gmail.com') {
     // Если условие выполняется, вызываем accountSync
     accountSync();
     //Lampa.Noty.show('запуск синхронизации');
