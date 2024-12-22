@@ -15,10 +15,6 @@ FLOW=$(echo "$VLESS_LINK" | grep -oP '(?<=flow=)[^&]*')
 SNI=$(echo "$VLESS_LINK" | grep -oP '(?<=sni=)[^&]*')
 FP=$(echo "$VLESS_LINK" | grep -oP '(?<=fp=)[^&]*')
 PBK=$(echo "$VLESS_LINK" | grep -oP '(?<=pbk=)[^&]*')
-SID=$(echo "$VLESS_LINK" | grep -oP '(?<=sid=)[^&]*')
-
-# Преобразование SID в short-id (если нужно)
-SHORT_ID=$(echo "$SID" | head -c 16)
 
 # Генерация YAML без лишних выводов
 cat <<EOL
@@ -36,6 +32,5 @@ cat <<EOL
   servername: www.$SNI
   reality-opts:
     public-key: $PBK
-    short-id: $SHORT_ID
   client-fingerprint: $FP
 EOL
