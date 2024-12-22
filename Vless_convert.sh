@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Просим пользователя ввести имя для конфигурации
+read -p "Введите имя для 'name': " NAME
+
 # Просим пользователя ввести VLESS ссылку
 read -p "Введите VLESS ссылку: " VLESS_LINK
 
@@ -14,12 +17,14 @@ FP=$(echo "$VLESS_LINK" | grep -oP '(?<=fp=)[^&]*')
 PBK=$(echo "$VLESS_LINK" | grep -oP '(?<=pbk=)[^&]*')
 SID=$(echo "$VLESS_LINK" | grep -oP '(?<=sid=)[^&]*')
 
-# Преобразование sid в short-id (если нужно)
+# Преобразование SID в short-id (если нужно)
 SHORT_ID=$(echo "$SID" | head -c 16)
 
-# Генерация YAML
-OUTPUT_TEXT=$(cat <<EOL
-- name: "VLESS_SE"
+# Генерация YAML без лишних выводов
+cat <<EOL
+
+Результат преобразования:
+- name: "$NAME"
   type: vless
   server: $SERVER
   port: $PORT
@@ -34,8 +39,3 @@ OUTPUT_TEXT=$(cat <<EOL
     short-id: $SHORT_ID
   client-fingerprint: $FP
 EOL
-)
-
-# Вывод результата
-echo "\nРезультат преобразования:\n"
-echo "$OUTPUT_TEXT"
